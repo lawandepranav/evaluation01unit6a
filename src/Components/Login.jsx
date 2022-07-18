@@ -1,71 +1,56 @@
 import React from "react";
-import styled from "styled-components";
 import Button from "./Button";
-import { AuthContext } from "../Contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  let LoginWrapper = styled.div`
-    text-align: center;
-    margin: 5px;
-  `;
-  let Input = styled.input`
-    padding: 5px;
-    margin: 5px 0;
-    border-radius: 5px;
-    border: 1px solid grey;
-  `;
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const navigate = useNavigate();
 
-  const [data, setData] = React.useState({
-    email: "",
-    password: "",
-  });
-
-  let dataFromContext = React.useContext(AuthContext);
-  const { login, isAuth, token } = dataFromContext;
-
-  function handleChange(e) {
-    const { value, name } = e.target;
-
-    setData((old) => ({
-      ...old,
-      [name]: value,
-    }));
-  }
-
-  function getResponse() {
+  const handleLogin = () => {
+    const payload = { email, password };
     fetch(`https://reqres.in/api/login`, {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify(payload),
       headers: {
-        "content-type": "application/json",
-      },
+        "Content-Type": "application/json"
+      }
     })
       .then((res) => res.json())
-      .then((res) => login(res.token));
-  }
-
-  //   console.log(dataFromContext);
+      .then((res) => {
+        if (res.token) {
+          navigate("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
-    <LoginWrapper>
-      <Input
-        type="email"
-        name="email"
-        value={data.email}
-        placeholder="Email"
-        onChange={handleChange}
-      />
+    <div>
+      <h1>LOGIN</h1>
+      <label>
+        EMAIL
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </label>
       <br />
-      <Input
-        type="password"
-        name="password"
-        value={data.password}
-        placeholder="Password"
-        onChange={handleChange}
-      />
-      <br />
-      <Button onClick={getResponse}>Sign In</Button>
-    </LoginWrapper>
+      <label>
+        PASSWORD
+        <input
+          type="text"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </label>
+      <Button onClick={handleLogin}>LOGIN</Button>
+    </div>
   );
 };
 

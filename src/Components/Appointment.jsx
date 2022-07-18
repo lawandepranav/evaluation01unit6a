@@ -1,16 +1,36 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "./Button";
 import axios from 'axios'
+import { useEffect } from "react";
  const Appointment =()=>{
+    const [status, setStatus]=React.useState("")
 
-
+let Outerbox=styled.div`
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap:50px;
+`
 
     let Box = styled.div`
-  display: grid;
-  justify-content: space-between;
-  align-items: middle;
-  padding: 10px; ;
+    text-align:center;
+  padding: 10px;
+  box-shadow: rgb(0 0 0 / 8%) 0px 4px 7px;
 `;
+let Heading = styled.div`
+color:red;
+font-sixe:50px;
+font-weight:700;
+`;
+
+const handleDelete= (itemId)=>{
+  
+         axios.delete(`http://localhost:8080/bookings/${itemId}`)
+         .then(() => setStatus('Delete successful'));
+
+
+}
+
 
 
     const [bookings, setBookings]=React.useState([])
@@ -25,22 +45,28 @@ import axios from 'axios'
           })
         
       }, []);
+      
+    
+      
 
     return(
               <>
-           <Box>
+              <Heading>
+                Bookings
+              </Heading>
+           <Outerbox>
              {bookings?.map((item) => (
-                <div>
-                    <div >Name: {item.name} </div>
-                    <div >age: {item.age} </div>
-                    <div >Title:{item.title} </div>
-                    <div > Gender:{item.gender} </div>
-                    <div >Time: {item.time} </div>
-                    <div >Date: {item.date} </div>
-                    <button >Delete</button>
-                </div>
+                <Box>
+                    <h3 >Name: {item.name} </h3>
+                    <p>age: {item.age} </p>
+                    <p>Title:{item.title} </p>
+                    <p> Gender:{item.gender} </p>
+                    <p>Time: {item.time} </p>
+                    <p>Date: {item.date} </p>
+                    <Button onClick={()=>{handleDelete(item.id)}}>Delete</Button>
+                </Box>
              ))}
-         </Box>
+         </Outerbox>
          </>
     )
 

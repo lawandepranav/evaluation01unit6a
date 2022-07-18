@@ -1,22 +1,13 @@
 {
-    "bookings": [
-      {
-        "id": 1,
-        "name":"Sam",
-        "title": "psychology",
-        "age": "25",
-        "gender":"Male",
-        "time":"9am",
-        "date":"24th july"
-      },
-      {
-        "id": 2,
-        "name":"Ram",
-        "title": "reagrding bones",
-        "age": "20",
-        "gender":"Female",
-        "time":"12am",
-        "date":"25th july"
-      }
-    ]
-  }
+  "bookings": [
+    {
+      "id":"1",
+      "name":"Shyam",
+      "age":"24",
+      "gender":"Male",
+      "title":"dental",
+      "time":"9am",
+      "date":"12th july"
+    }
+  ]
+}
