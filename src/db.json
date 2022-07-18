@@ -2,7 +2,7 @@
     "bookings": [
       {
         "id": 1,
-        "name":"sam",
+        "name":"Sam",
         "title": "psychology",
         "age": "25",
         "gender":"Male",
@@ -11,7 +11,7 @@
       },
       {
         "id": 2,
-        "name":"ram",
+        "name":"Ram",
         "title": "reagrding bones",
         "age": "20",
         "gender":"Female",

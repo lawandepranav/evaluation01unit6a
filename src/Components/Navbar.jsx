@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Appointment from "./Appointment";
 import Button from "./Button";
 // import { AuthContext } from "../Contexts/AuthContext"
 // import BookAppoinment from "./BookAppointment";
@@ -40,9 +41,8 @@ const Navbar = () => {
 
   return (
     <>
-    <h1>Navbar</h1>
       <div>
-        <h1>Context API</h1>
+        <Appointment/>
         {/* <BookAppoinment/> */}
         {/* <AuthWrapper>
           {!isAuth && <Button>Log In</Button>}
