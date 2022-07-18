@@ -10,34 +10,24 @@ const BookAppoinment = ()=>{
     const [date, setDate]= React.useState("");
     const [gender, setGender]= React.useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setIsLoading(true);
-        setIsError(false);
-        loginus({ email, password })
-          .then((res) => {
-            setIsAuth(true);
-            setToken(res.data.token);
-          })
-          .catch((err) => {
-            setIsError(true);
-          })
-          .finally(() => {
-            setIsLoading(false);
-          });
-      };
-
-    axios.post('/user', {
-        firstName: 'Fred',
-        lastName: 'Flintstone'
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
+//     const handleSubmit =(e)=>{
+//    e.preventDefault();
+//     axios.post('http://localhost:8080/bookings', {
+//         personName:name,
+//         title: reason,
+//         age:age ,
+//         gender:gender,
+//         time:time,
+//         date:date
+//       })
+//       .then(function (response) {
+//         console.log(response);
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       });
+// }
+    
 
     let Form = styled.div`
   display: flex;
@@ -49,25 +39,25 @@ const BookAppoinment = ()=>{
     return(
         <>
         <Form> 
-        <form onSubmit={handleSubmit}>
+        <form >
 
              <label>Name</label>
-        <input type="text" placeholder="Enter Your Name"/>
+        <input type="text" placeholder="Enter Your Name" onChange={(e) => setName(e.target.value)}/>
 
         <label>Age</label>
-        <input type="number" placeholder="Enter Your Age"/>
+        <input type="number" placeholder="Enter Your Age" onChange={(e) => setAge(e.target.value)}/>
 
         <label>Reason for Meeting</label>
-        <input type="text"></input>
+        <input type="text" placeholder="Type Reason for meeting" onChange={(e) => setReason(e.target.value)}></input>
 
         <label>Time</label>
-        <input type="time"></input>
+        <input type="time" onChange={(e) => setTime(e.target.value)}></input>
 
         <label>Date</label>
-        <input type="date"></input>
+        <input type="date" onChange={(e) => setDate(e.target.value)}></input>
 
         <label>Gender</label>
-        <select name="" id="">
+        <select name="" id="" onChange={(e) => setGender(e.target.value)}>
         <option value=""></option>
             <option value="">Male</option>
             <option value="">Female</option>

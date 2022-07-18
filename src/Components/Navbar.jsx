@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
 // import { AuthContext } from "../Contexts/AuthContext"
-import BookAppoinment from "./BookAppointment";
+// import BookAppoinment from "./BookAppointment";
 
 let Head = styled.div`
   color: blue;
@@ -43,7 +43,7 @@ const Navbar = () => {
     <h1>Navbar</h1>
       <div>
         <h1>Context API</h1>
-        <BookAppoinment/>
+        {/* <BookAppoinment/> */}
         {/* <AuthWrapper>
           {!isAuth && <Button>Log In</Button>}
           {isAuth && <Button onClick={logOut}>Log Out</Button>}

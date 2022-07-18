@@ -1,0 +1,22 @@
+{
+    "bookings": [
+      {
+        "id": 1,
+        "name":"sam",
+        "title": "psychology",
+        "age": "25",
+        "gender":"Male",
+        "time":"9am",
+        "date":"24th july"
+      },
+      {
+        "id": 2,
+        "name":"ram",
+        "title": "reagrding bones",
+        "age": "20",
+        "gender":"Female",
+        "time":"12am",
+        "date":"25th july"
+      }
+    ]
+  }
