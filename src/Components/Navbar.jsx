@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Appointment from "./Appointment";
-import Button from "./Button";
+
 // import { AuthContext } from "../Contexts/AuthContext"
-// import BookAppoinment from "./BookAppointment";
+import BookAppoinment from "./BookAppointment";
 const NavbarWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -13,12 +12,9 @@ const NavbarWrapper = styled.div`
   background: black;
   color: white;
   padding: 20px;
+  border-radius:10px;
 `;
-const BoxIn = styled.div`
-  display: flex;
-  justify-content: space-between;
 
-`;
 const StyledLink = styled(Link)`
 text-decoration:none;
 font-size:20px;
@@ -33,11 +29,12 @@ const Navbar = () => {
 
   return (
     <>
-      <div>
+      <div style={{width:"100%",margin:"auto",}}>
     
     <NavbarWrapper>
         <div><StyledLink to="/">HOME</StyledLink></div>
         <div ><StyledLink to="/appointment">Appointments</StyledLink>
+        <StyledLink to="/bookAppointment">BookAppointments</StyledLink>
       <StyledLink to="/login">Login</StyledLink></div>
     </NavbarWrapper>
 </div>
