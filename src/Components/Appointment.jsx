@@ -34,17 +34,17 @@ const handleDelete= (itemId)=>{
 
 
     const [bookings, setBookings]=React.useState([])
-    React.useEffect(() => {
+      React.useEffect(() => {
 
-        axios.get(`http://localhost:8080/bookings`)
-          .then((res) => {
-            setBookings(res.data);
-          })
-          .catch((err) => {
-           console.log("err")
-          })
-        
-      }, []);
+          axios.get(`http://localhost:8080/bookings`)
+            .then((res) => {
+              setBookings(res.data);
+            })
+            .catch((err) => {
+            console.log("err")
+            })
+          
+        }, []);
       
     
       
